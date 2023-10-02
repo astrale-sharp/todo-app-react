@@ -22,7 +22,8 @@ export default function Elem(props) {
 
   return (
     <div id={id} 
-      ref={setNodeRef}  {...listeners} {...attributes}
+      // ref={setNodeRef} 
+      //  {...listeners} {...attributes}
           className={styles.elem}
           style={{
             borderColor: props.done ? "green" : "yellow",
@@ -34,7 +35,7 @@ export default function Elem(props) {
         justifyItems: 'center',
         alignItems: "center"
       }}>
-        <button className={styles.button}  
+        <button className={styles.button} style={{zIndex:101}}  
         onClick={x => pp.toggleItemFromList(pp.name, props.date)}
           >
             {mark}
@@ -61,6 +62,7 @@ export default function Elem(props) {
           
         />
         <button
+        style={{zIndex:101}}
           onClick={(x) => pp.removeElemToList(pp.name, props.date)}
           className={styles.button}>
           x

@@ -30,26 +30,26 @@ export default function Home() {
     , [])
 
 
-  function handleDragEnd(event) {
-    const { over } = event;
-    console.log(event)
-    if (over != null) {
-      let target_list = over.id
-      console.log("log", event)
-      let [sending_list, date] = event.active.id.split("///")
-      removeElemToList(sending_list, date)
-      addElemToList(target_list)
-      console.log(target_list)
-      console.log(sending_list)
-      console.log(date)
-    }
+  // function handleDragEnd(event) {
+  //   const { over } = event;
+  //   console.log(event)
+  //   if (over != null) {
+  //     let target_list = over.id
+  //     console.log("log", event)
+  //     let [sending_list, date] = event.active.id.split("///")
+  //     removeElemToList(sending_list, date)
+  //     addElemToList(target_list)
+  //     console.log(target_list)
+  //     console.log(sending_list)
+  //     console.log(date)
+  //   }
 
     // alert(4)
     // If the item is dropped over a container, set it as the parent
     // otherwise reset the parent to `null`
     // setParent(over ? over.id : null);
 
-  };
+  // };
 
   function addList() {
     let updated = Interface.addList(data)
@@ -92,6 +92,7 @@ export default function Home() {
         let requestOptions = {
           method: "POST", // *GET, POST, PUT, DELETE, etc.
           body: JSON.stringify(obj),
+            headers: {'Content-type': 'application/json; charset=UTF-8',},
         }
 
         sendPromise.current = fetch(
@@ -127,7 +128,9 @@ export default function Home() {
 
 
   return (
-    <DndContext onDragEnd={handleDragEnd}>
+    <DndContext 
+    //onDragEnd={}
+    >
       <div>
         {/* some {JSON.stringify(data)} */}
         <title>Todo App</title>
